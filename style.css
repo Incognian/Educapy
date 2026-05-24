@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: white;
+
+  font-family: "Inter", sans-serif;
+  color: black;
+}
+
+.page {
+  margin: 0;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
+
+.educapy-header
+{
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.educapy-header h1
+{
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.title {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 2rem;
+
+  font-size: 1.5rem;
+}
+
+.card-container {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(25rem, 1fr));
+
+  gap: 2rem;
+
+  align-items: start;
+
+  max-width: 54rem;
+}
+
+.card {
+
+  width: 100%;
+
+  padding: 2rem;
+
+  border: 0.25rem solid #888888;
+  border-radius: 1rem;
+
+  background: white;
+}
+
+.card h3 {
+  margin: 0;
+
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.card-subtitle {
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+
+  font-size: 1.5rem;
+}
+
+.card label {
+
+  display: block;
+
+  margin-bottom: 0rem;
+
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.card input {
+
+  width: 100%;
+
+  height: 3rem;
+
+  margin-bottom: 2rem;
+
+  padding: 0.5rem 0.5rem;
+
+  border: 0.2rem solid #888888;
+  border-radius: 0.5rem;
+
+  background: white;
+
+  font-size: 1.5rem;
+}
+
+.card button {
+
+  width: 100%;
+
+  height: 3rem;
+
+  border: 0.2rem solid black;
+  border-radius: 0.5rem;
+
+  background: black;
+  color: white;
+
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.card button:active {
+  background: white;
+  color: black;
+}
