@@ -58,6 +58,7 @@ async function register()
 
 async function login()
 {
+    window.location.href = "schedule.html";
     const email = document.getElementById("log-email").value;
     const password = document.getElementById("log-pass").value;
 
