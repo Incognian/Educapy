@@ -5,7 +5,7 @@ async function redirect()
     const email = localStorage.getItem('email');
     const password = localStorage.getItem('password');
 
-    const response = await fetch(con + "login/",
+    const response = await fetch(con + "getID",
     {
         method: 'POST',
         headers:
@@ -61,7 +61,7 @@ async function login()
     const email = document.getElementById("log-email").value;
     const password = document.getElementById("log-pass").value;
 
-    const response = await fetch(con + "login",
+    const response = await fetch(con + "getID",
     {
         method: 'POST',
         headers:
