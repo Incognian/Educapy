@@ -25,9 +25,9 @@ async function redirect()
     const htmlName = path.substring(path.lastIndexOf('/') + 1);
     if (data.resID != null)
     {
-        if (htmlName == 'index.html') window.location.href = "schedule.html";
+        if (htmlName == 'index.html' || htmlName == '') window.location.href = "schedule.html";
     }
-    else if (htmlName != 'index.html') window.location.href = "index.html";
+    else if (htmlName != 'index.html' && htmlName != '') window.location.href = "index.html";
 }
 
 async function register()
