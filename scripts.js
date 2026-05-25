@@ -52,6 +52,8 @@ async function register()
     });
     const data = await response.json();
     console.log(data);
+
+    alert(data.success ? "registration success" : "registration failed");
 }
 
 async function login()
@@ -81,4 +83,5 @@ async function login()
         localStorage.setItem('password', password);
         redirect();
     }
+    else alert("login failed");
 }
