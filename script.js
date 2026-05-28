@@ -23,10 +23,16 @@ async function redirect()
 
     path = window.location.pathname;
     const htmlName = path.substring(path.lastIndexOf('/') + 1);
+    // index.html becomes login page
     if (data.resID != null)
     {
-        if (htmlName == 'index.html' || htmlName == '') window.location.href = "schedule.html";
+        // if already logged in but still in index.html go to main page
+        if (htmlName == 'index.html' || htmlName == '')
+        {
+            window.location.href = "schedule.html";
+        }
     }
+    // if not on index.html but not logged in go to index.html
     else if (htmlName != 'index.html' && htmlName != '') window.location.href = "index.html";
 }
 
@@ -54,6 +60,8 @@ async function register()
     console.log(data);
 
     alert(data.success ? "registration success" : "registration failed");
+
+    // register doesn't automatically log into newly registered account
 }
 
 async function login()
@@ -77,6 +85,7 @@ async function login()
     const data = await response.json();
     console.log(data);
 
+    // if login successful save the login credentials as variables and then call redirect
     if (data.resID != null)
     {
         localStorage.setItem('email', email);
@@ -85,3 +94,6 @@ async function login()
     }
     else alert("login failed");
 }
+
+// on page startup call redirect
+document.addEventListener("DOMContentLoaded", redirect);
