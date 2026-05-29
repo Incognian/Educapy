@@ -60,7 +60,6 @@ async function register()
     console.log(data);
 
     alert(data.success ? "registration success" : "registration failed");
-
     // register doesn't automatically log into newly registered account
 }
 
