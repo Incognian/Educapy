@@ -165,9 +165,14 @@ async function hideObjects()
 
     document.querySelectorAll('[viewableby]').forEach(e =>
     {
-        if (e.getAttribute("viewableby") > data.tipe)
+        if (e.getAttribute("viewableby") != data.tipe)
         e.remove();
     });
+}
+
+async function populateWillingnessDropdown()
+{
+
 }
 
 // on page startup call redirect
