@@ -47,56 +47,38 @@
   </div>
 
   <div class="page">
-    <table>
-      <tr>
-        <th></th>
-        <th>Senin</th>
-        <th>Selasa</th>
-        <th>Rabu</th>
-        <th>Kamis</th>
-        <th>Jumat</th>
-        <th>Sabtu</th>
-        <th>Minggu</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">08:00-09:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">09:00-10:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">10:00-11:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">11:00-12:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">12:00-13:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">13:00-14:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">14:00-15:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">15:00-16:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">16:00-17:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">17:00-18:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">18:00-19:00</th>
-      </tr>
-      <tr>
-        <th class="row-sizer">19:00-20:00</th>
-      </tr>
-    </table>
+    <div class="time-table">
+      <div class="column-names">
+        <h1>Senin</h1>
+        <h1>Selasa</h1>
+        <h1>Rabu</h1>
+        <h1>Kamis</h1>
+        <h1>Jumat</h1>
+        <h1>Sabtu</h1>
+        <h1>Minggu</h1>
+      </div>
+
+      <div class="row-names">
+        <h1>08:00-09:00</h1>
+        <h1>09:00-10:00</h1>
+        <h1>10:00-11:00</h1>
+        <h1>11:00-12:00</h1>
+        <h1>12:00-13:00</h1>
+        <h1>13:00-14:00</h1>
+        <h1>14:00-15:00</h1>
+        <h1>15:00-16:00</h1>
+        <h1>16:00-17:00</h1>
+        <h1>17:00-18:00</h1>
+        <h1>18:00-19:00</h1>
+        <h1>19:00-20:00</h1>
+      </div>
+
+      <div class="actual-schedule" id="actual-schedule"></div>
+
+    </div>
   </div>
 
   <script src="script.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", showSchedule);</script>
 </body>
 </html>

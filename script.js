@@ -94,5 +94,47 @@ async function login()
     else alert("login failed");
 }
 
+async function showSchedule()
+{
+    document.querySelectorAll(".schedule-box").forEach(e => e.remove());
+
+    const response = await fetch(con + "getClasses",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: localStorage.getItem('email'),
+            pw: localStorage.getItem('password'),
+            inputID: 0
+        })
+    });
+    const data = await response.json();
+    console.log(data);
+
+    data.forEach(e => putBox(e.hari, e.jamAwal, e.jamAkhir, e.nama, e.id, e.mapel, e.jenjang));
+}
+
+function putBox(hari, jamAwal, jamAkhir, nama, id, mapel, jenjang)
+{
+    const box = document.createElement("div");
+    box.className = "schedule-box";
+    box.innerHTML = `${mapel}<br>${jenjang}<br>${nama} (${id})`;
+    let col = 1;
+    if (hari == 'Selasa') col = 2;
+    else if (hari == 'Rabu') col = 3;
+    else if (hari == 'Kamis') col = 4;
+    else if (hari == 'Jumat') col = 5;
+    else if (hari == 'Sabtu') col = 6;
+    else if (hari == 'Minggu') col = 7;
+    
+    box.style.gridColumn = `${col} / ${col + 1}`;
+    box.style.gridRow = `${jamAwal - 7} / ${jamAkhir - 7}`;
+    document.getElementById("actual-schedule").appendChild(box);
+}
+
 // on page startup call redirect
 document.addEventListener("DOMContentLoaded", redirect);
