@@ -109,6 +109,7 @@ async function showSchedule()
         ({
             email: localStorage.getItem('email'),
             pw: localStorage.getItem('password'),
+            // ignore inputID for now
             inputID: 0
         })
     });
