@@ -188,18 +188,26 @@ table
 th, td
 {
   width: 10rem;
-  height: 1rem;
+  height: 2rem;
   font-size: 1.5rem;
   text-align: center
 }
 
+.row-sizer
+{
+  height: 5rem
+}
+
 .empty
 {
-  background: #888888;
-  height: 10rem
+  background: white;
 }
 
 .filled
 {
-  background: white
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  text-align: left;
+  text-wrap: wrap
 }
