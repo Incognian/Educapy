@@ -29,11 +29,11 @@ async function redirect()
         // if already logged in but still in index.html go to main page
         if (htmlName == 'index.html' || htmlName == '')
         {
-            window.location.href = "schedule.html";
+            openPage('schedule');
         }
     }
     // if not on index.html but not logged in go to index.html
-    else if (htmlName != 'index.html' && htmlName != '') window.location.href = "index.html";
+    else if (htmlName != 'index.html' && htmlName != '') openPage("index");
 }
 
 async function register()
@@ -137,5 +137,39 @@ function putBox(hari, jamAwal, jamAkhir, nama, id, mapel, jenjang)
     document.getElementById("actual-schedule").appendChild(box);
 }
 
+function openPage(target)
+{
+    window.location.href = `${target}.html`;
+}
+
+async function hideObjects()
+{
+    const email = localStorage.getItem('email');
+    const password = localStorage.getItem('password');
+
+    const response = await fetch(con + "getID",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: email,
+            pw: password
+        })
+    });
+    const data = await response.json();
+    console.log(data);
+
+    document.querySelectorAll('[viewableby]').forEach(e =>
+    {
+        if (e.getAttribute("viewableby") > data.tipe)
+        e.remove();
+    });
+}
+
 // on page startup call redirect
 document.addEventListener("DOMContentLoaded", redirect);
+document.addEventListener("DOMContentLoaded", hideObjects);
