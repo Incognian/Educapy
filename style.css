@@ -259,9 +259,11 @@ body {
 .selector
 {
   display: flex;
+  gap: 1rem;
 }
 
 .deselector
 {
   display: flex;
+  gap: 1rem;
 }

@@ -165,14 +165,36 @@ async function hideObjects()
 
     document.querySelectorAll('[viewableby]').forEach(e =>
     {
-        if (e.getAttribute("viewableby") != data.tipe)
-        e.remove();
+        if (e.getAttribute("viewableby") != data.tipe) e.remove();
     });
 }
 
-async function populateWillingnessDropdown()
+async function populateDropdown(index, dropdownID)
 {
+    const response = await fetch(con + "getID",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            index: index
+        })
+    });
+    const data = await response.json();
+    console.log(data);
 
+    target = document.getElementById(dropdownID);
+    data.forEach(e =>
+    {
+        const item = document.createElement("option");
+        item.value = e.id;
+        item.textContent = e.nama;
+
+        target.appendChild(item);
+    });
 }
 
 // on page startup call redirect
