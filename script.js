@@ -116,7 +116,7 @@ async function showSchedule()
     const data = await response.json();
     console.log(data);
 
-    data.res.forEach(e => putBox(e.hari, e.jamAwal, e.jamAkhir, e.nama, e.id, e.mapel, e.jenjang));
+    data.forEach(e => putBox(e.hari, e.jamAwal, e.jamAkhir, e.nama, e.id, e.mapel, e.jenjang));
 }
 
 function putBox(hari, jamAwal, jamAkhir, nama, id, mapel, jenjang)
@@ -226,7 +226,7 @@ async function populateGuruDropdown()
 
     const target = document.getElementById("user-selector-dropdown");
 
-    data.res.forEach(e =>
+    data.forEach(e =>
     {
         const item = document.createElement("option");
         item.value = e.idPengguna;
@@ -260,14 +260,14 @@ async function loadGuruSchedule()
     const data = await response.json();
     console.log(data);
 
-    data.res.forEach(item =>
+    data.forEach(e =>
     {
         const row = document.createElement("tr");
-        row.innerHTML = `<td>${item.idKursus ?? ""}</td>
-                         <td>${item.hari ?? ""}</td>
-                         <td>${item.jamAwal ?? ""}</td>
-                         <td>${item.jamAkhir ?? ""}</td>
-                         <td classname='action-icon' onclick="deleteGuruSchedule(${item.idJadwal})">✕</td>`;
+        row.innerHTML = `<td>${e.idKursus ?? ""}</td>
+                         <td>${e.hari ?? ""}</td>
+                         <td>${e.jamAwal ?? ""}</td>
+                         <td>${e.jamAkhir ?? ""}</td>
+                         <td classname='action-icon' onclick="deleteGuruSchedule(${e.idJadwal})">✕</td>`;
         tbody.appendChild(row);
     });
 }
