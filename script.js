@@ -207,8 +207,22 @@ async function populateDropdown(index, dropdownID)
 
 async function populateGuruDropdown()
 {
-    const response = await fetch(con + "getTeachers");
+    const response = await fetch(con + "getTeachers",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: localStorage.getItem('email'),
+            pw: localStorage.getItem('password')
+        })
+    });
+
     const data = await response.json();
+    console.log(data);
 
     const target = document.getElementById("user-selector-dropdown");
 
