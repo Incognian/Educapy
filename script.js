@@ -116,7 +116,7 @@ async function showSchedule()
     const data = await response.json();
     console.log(data);
 
-    data.forEach(e => putBox(e.hari, e.jamAwal, e.jamAkhir, e.nama, e.id, e.mapel, e.jenjang));
+    data.res.forEach(e => putBox(e.hari, e.jamAwal, e.jamAkhir, e.nama, e.id, e.mapel, e.jenjang));
 }
 
 function putBox(hari, jamAwal, jamAkhir, nama, id, mapel, jenjang)
