@@ -169,6 +169,14 @@ async function hideObjects()
     });
 }
 
+// async function fillRecordTable(index, tableID, columns)
+// {
+//     const response = await fetch()
+//     {
+
+//     }
+// }
+
 async function populateDropdown(index, dropdownID)
 {
     const response = await fetch(con + "getID",
@@ -195,6 +203,109 @@ async function populateDropdown(index, dropdownID)
 
         target.appendChild(item);
     });
+}
+
+async function populateGuruDropdown()
+{
+    const response = await fetch(con + "getTeachers");
+    const data = await response.json();
+
+    const target = document.getElementById("user-selector-dropdown");
+
+    data.res.forEach(e =>
+    {
+        const item = document.createElement("option");
+        item.value = e.idPengguna;
+        item.textContent = `${e.idPengguna} - ${e.namaPengguna}`;
+        target.appendChild(item);
+    });
+
+    loadGuruSchedule();
+}
+
+async function loadGuruSchedule()
+{
+    const tbody = document.getElementById("schedule-table");
+    tbody.innerHTML = "";
+    console.log("test");
+
+    const response = await fetch(con + "getClasses",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: localStorage.getItem('email'),
+            pw: localStorage.getItem('password'),
+            inputID: document.getElementById("user-selector-dropdown").value
+        })
+    });
+    const data = await response.json();
+    console.log(data);
+
+    data.res.forEach(item =>
+    {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${item.idKursus ?? ""}</td>
+                         <td>${item.hari ?? ""}</td>
+                         <td>${item.jamAwal ?? ""}</td>
+                         <td>${item.jamAkhir ?? ""}</td>
+                         <td classname='action-icon' onclick="deleteGuruSchedule(${item.idJadwal})">✕</td>`;
+        tbody.appendChild(row);
+    });
+}
+
+async function addGuruSchedule()
+{
+    const response = await fetch(con + "addClass",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: localStorage.getItem('email'),
+            pw: localStorage.getItem('password'),
+            param:
+            [
+                document.getElementById("courseID").value,
+                document.getElementById("user-selector-dropdown").value,
+                document.getElementById("dayVal").value,
+                document.getElementById("startTime").value,
+                document.getElementById("endTime").value
+            ]
+        })
+    });
+    const data = await response.json();
+
+    if (!data.success) alert("addition failed");
+    else loadGuruSchedule();
+}
+
+async function deleteGuruSchedule(inputID)
+{
+    console.log("here");
+    const response = await fetch(con + "deleteClass",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: localStorage.getItem('email'),
+            pw: localStorage.getItem('password'),
+            inputID: inputID
+        })
+    });
+    const data = await response.json();
+    if (data.success) loadGuruSchedule();
 }
 
 // on page startup call redirect
