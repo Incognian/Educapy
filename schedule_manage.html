@@ -76,7 +76,7 @@
           <tr>
             <td>
               <!-- Input for new course ID; numeric only -->
-              <input id="courseID" type="number" min="0" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="ID Kursus" />
+              <input id="courseID" type="number" min="1" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="ID Kursus" />
             </td>
             <td>
               <!-- Dropdown to choose the weekday for the schedule entry -->
@@ -92,11 +92,11 @@
             </td>
             <td>
               <!-- Input for the starting hour of the class -->
-              <input id="startTime" type="number" min="0" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Jam Awal" />
+              <input id="startTime" type="number" min="8" max="19" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Jam Awal" />
             </td>
             <td>
               <!-- Input for the ending hour of the class -->
-              <input id="endTime" type="number" min="0" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Jam Akhir" />
+              <input id="endTime" type="number" min="9" max="20" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Jam Akhir" />
             </td>
             <td>
               <span class="action-icon" onclick="addGuruSchedule()">+</span>

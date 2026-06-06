@@ -172,7 +172,7 @@ async function hideObjects()
 
     document.querySelectorAll('[viewableby]').forEach(e =>
     {
-        if (e.getAttribute("viewableby") != data.tipe) e.remove();
+        if (e.getAttribute("viewableby") != data.tipe) e.style.display = "none";
     });
 }
 
