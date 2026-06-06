@@ -390,21 +390,18 @@ async function loadAccountInformation()
     const data = await response.json();
     console.log(data);
 
-    if (data.resContacts)
-    {
-        if (data.resContacts.email.length > 0)
-            document.getElementById("email-kontak-1").textContent =
-            data.resContacts.email[0];
-        if (data.resContacts.email.length > 1)
-            document.getElementById("email-kontak-2").textContent =
-            data.resContacts.email[1];
-        if (data.resContacts.phone.length > 0)
-            document.getElementById("nomor-kontak-1").textContent =
-            data.resContacts.phone[0];
-        if (data.resContacts.phone.length > 1)
-            document.getElementById("nomor-kontak-2").textContent =
-            data.resContacts.phone[1];
-    }
+    if (data.resEmail.length > 0)
+        document.getElementById("email-kontak-1").value =
+        data.resEmail[0].alamatEmail;
+    if (data.resEmail.length > 1)
+        document.getElementById("email-kontak-2").value =
+        data.resEmail[1].alamatEmail;
+    if (data.resPhone.length > 0)
+        document.getElementById("nomor-kontak-1").value =
+        data.resPhone[0].nomorTelepon;
+    if (data.resPhone.length > 1)
+        document.getElementById("nomor-kontak-2").value =
+        data.resPhone[1].nomorTelepon;
 }
 
 // on page startup call redirect
