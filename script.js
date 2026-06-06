@@ -186,7 +186,7 @@ async function hideObjects()
 
 async function populateDropdown(index, dropdownID)
 {
-    const response = await fetch(con + "getID",
+    const response = await fetch(con + "getItems",
     {
         method: 'POST',
         headers:
@@ -383,7 +383,7 @@ async function loadAccountInformation()
         },
         body: JSON.stringify({
             email: localStorage.getItem('email'), 
-            pw: localStorage.getItem('password'),
+            pw: localStorage.getItem('password')
         })
     });
 
@@ -402,6 +402,86 @@ async function loadAccountInformation()
     if (data.resPhone.length > 1)
         document.getElementById("nomor-kontak-2").value =
         data.resPhone[1].nomorTelepon;
+}
+
+async function loadWillingness()
+{
+    const tbody = document.getElementById("willingness-table");
+    tbody.innerHTML = "";
+
+    const response = await fetch(con + "getWillingness",
+    {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: localStorage.getItem('email'), 
+            pw: localStorage.getItem('password'),
+            inputID: document.getElementById("user-selector-dropdown").value
+        })
+    });
+
+    const data = await response.json();
+
+    data.forEach(e =>
+    {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${e.namaMapel ?? ""}</td>
+                         <td>${e.namaJenjang ?? ""}</td>
+                         <td classname='action-icon' onclick="deleteWillingness(${e.idMapel}, ${e.idJenjang})">✕</td>`;
+        tbody.appendChild(row);
+    });
+}
+
+async function addWillingness()
+{
+    const response = await fetch(con + "addWillingness",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: localStorage.getItem('email'),
+            pw: localStorage.getItem('password'),
+            param:
+            [
+                document.getElementById("user-selector-dropdown").value,
+                document.getElementById("idMapel").value,
+                document.getElementById("idJenjang").value
+            ]
+        })
+    });
+    const data = await response.json();
+
+    if (!data.success) alert("addition failed");
+    else loadWillingness();
+}
+
+async function deleteWillingness(idMapel, idJenjang)
+{
+    console.log("here");
+    const response = await fetch(con + "deleteWillingness",
+    {
+        method: 'POST',
+        headers:
+        {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify
+        ({
+            email: localStorage.getItem('email'),
+            pw: localStorage.getItem('password'),
+            inputID: null,
+            idMapel: idMapel,
+            idJenjang: idJenjang
+        })
+    });
+    const data = await response.json();
+    if (data.success) loadWillingness();
 }
 
 // on page startup call redirect

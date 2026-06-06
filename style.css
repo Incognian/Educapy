@@ -183,6 +183,16 @@ body {
   color: black;
 }
 
+.cool-select
+{
+  height: 3rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 0.2rem solid #888888;
+  border-radius: 0.5rem;
+  background: white;
+}
+
 .time-table
 {
   width: 100%;
@@ -258,6 +268,7 @@ body {
 {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .deselector
