@@ -81,7 +81,7 @@
           <input class="cool-input" id="nomor-kontak-1">
 
           <label class="cool-label">
-            Email Kontak 2 (Opsional)
+            Email Kontak 2
           </label>
 
           <input class="cool-input" id="email-kontak-2" />
@@ -91,15 +91,27 @@
           </output> -->
 
           <label class="cool-label">
-            Nomor Telepon Kontak 2 (Opsional)
+            Nomor Telepon Kontak 2
           </label>
 
           <input class="cool-input" id="nomor-kontak-2"/>
 
-          <div viewableBy="1" class="selector">
-            <label class="cool-label">Tingkat Pendidikan</label>
-            <select id="mapel">
+          <div class="selector" viewableby=1>
+            <label class = "cool-label">Tingkat Pendidikan</label>
+            <select class = "cool-select" id="idJenjang">
             </select>
+          </div>
+
+          <div viewableby=2>
+            <label class = "cool-label">
+              Pengalaman Kerja 1
+            </label>
+
+            <input class = "cool-input" id="pengalaman-1" placeholder="Contoh: 3 tahun mengajar Fisika di SMAN 1">
+            <label class = "cool-label">
+              Pengalaman Kerja 2
+            </label>
+            <input class = "cool-input" id="pengalaman-2" placeholder="Contoh: 2 tahun mengajar Matematika di SMAN 3">
           </div>
 
           <button class="cool-button" onclick="changeAccountInformation()">
@@ -121,5 +133,6 @@
 
   <script src="script.js"></script>
   <script>document.addEventListener("DOMContentLoaded", loadAccountInformation);</script>
+  <script>document.addEventListener("DOMContentLoaded", populateDropdown(1, "idJenjang"));</script>
 </body>
 </html>

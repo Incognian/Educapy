@@ -172,7 +172,7 @@ async function hideObjects()
 
     document.querySelectorAll('[viewableby]').forEach(e =>
     {
-        if (e.getAttribute("viewableby") != data.tipe) e.style.display = "none";
+        if (e.getAttribute("viewableby") != data.resTipe) e.style.display = "none";
     });
 }
 
@@ -334,6 +334,9 @@ async function changeAccountInformation() {
     const email2 = document.getElementById("email-kontak-2").value.trim();
     const phone1 = document.getElementById("nomor-kontak-1").value.trim();
     const phone2 = document.getElementById("nomor-kontak-2").value.trim();
+    const jenjang = document.getElementById("idJenjang").value;
+    const pengalaman1 = document.getElementById("pengalaman-1").value.trim();
+    const pengalaman2 = document.getElementById("pengalaman-2").value.trim();
 
     // 2. Decouple them into separate arrays
     const emailList = [];
@@ -343,6 +346,10 @@ async function changeAccountInformation() {
     const phoneList = [];
     if (phone1) phoneList.push(phone1);
     if (phone2) phoneList.push(phone2);
+
+    const pengalamanList = [];
+    if (pengalaman1) pengalamanList.push(pengalaman1);
+    if (pengalaman2) pengalamanList.push(pengalaman2);
 
     try {
         // 3. Send decoupled data arrays to the server
@@ -355,7 +362,9 @@ async function changeAccountInformation() {
                 accountEmail: localStorage.getItem('email'), 
                 accountPw: localStorage.getItem('password'),
                 emails: emailList,  // Array of strings: ["e1", "e2"]
-                phones: phoneList   // Array of strings: ["p1", "p2"]
+                phones: phoneList,   // Array of strings: ["p1", "p2"]
+                jenjang: jenjang,
+                pengalamans: pengalamanList // Array of strings: ["peng1", "peng2"]
             })
         });
 
@@ -402,6 +411,15 @@ async function loadAccountInformation()
     if (data.resPhone.length > 1)
         document.getElementById("nomor-kontak-2").value =
         data.resPhone[1].nomorTelepon;
+    if (data.resPengalaman.length > 0)
+        document.getElementById("pengalaman-1").value =
+        data.resPengalaman[0].deskripsi;
+    if (data.resPengalaman.length > 1)
+        document.getElementById("pengalaman-2").value =
+        data.resPengalaman[1].deskripsi;
+    if (data.resJenjang != null)
+        document.getElementById("idJenjang").value =
+        data.resJenjang
 }
 
 async function loadWillingness()
