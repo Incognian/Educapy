@@ -78,16 +78,14 @@ body {
 }
 
 .title {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin: 0rem;
 
   font-size: 3rem;
   font-weight: 800;
 }
 
 .subtitle {
-  margin-top: 0;
-  margin-bottom: 2rem;
+  margin: 0rem;
 
   font-size: 1.5rem;
 }
@@ -110,6 +108,7 @@ body {
 
   width: 100%;
 
+  margin: 2rem 0rem;
   padding: 2rem;
 
   border: 0.25rem solid #888888;
@@ -118,21 +117,21 @@ body {
   background: white;
 }
 
-.card h3 {
+.cool-h3 {
   margin: 0;
 
   font-size: 2rem;
   font-weight: 800;
 }
 
-.card-subtitle {
+.cool-subtitle {
   margin-top: 0.25rem;
   margin-bottom: 2rem;
 
   font-size: 1.5rem;
 }
 
-.card label {
+.cool-label {
 
   display: block;
 
@@ -142,7 +141,7 @@ body {
   font-weight: 500;
 }
 
-.card input {
+.cool-input {
 
   width: 100%;
 
@@ -160,7 +159,7 @@ body {
   font-size: 1.5rem;
 }
 
-.card button
+.cool-button
 {
   width: 100%;
 
@@ -178,7 +177,7 @@ body {
   cursor: pointer;
 }
 
-.card button:active
+.cool-button:active
 {
   background: white;
   color: black;

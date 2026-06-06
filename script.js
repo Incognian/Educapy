@@ -94,6 +94,13 @@ async function login()
     else alert("login failed");
 }
 
+async function logout()
+{
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    redirect();
+}
+
 async function showSchedule()
 {
     document.querySelectorAll(".schedule-box").forEach(e => e.remove());
@@ -303,7 +310,6 @@ async function addGuruSchedule()
 
 async function deleteGuruSchedule(inputID)
 {
-    console.log("here");
     const response = await fetch(con + "deleteClass",
     {
         method: 'POST',
@@ -320,6 +326,85 @@ async function deleteGuruSchedule(inputID)
     });
     const data = await response.json();
     if (data.success) loadGuruSchedule();
+}
+
+async function changeAccountInformation() {
+    // 1. Grab all input values
+    const email1 = document.getElementById("email-kontak-1").value.trim();
+    const email2 = document.getElementById("email-kontak-2").value.trim();
+    const phone1 = document.getElementById("nomor-kontak-1").value.trim();
+    const phone2 = document.getElementById("nomor-kontak-2").value.trim();
+
+    // 2. Decouple them into separate arrays
+    const emailList = [];
+    if (email1) emailList.push(email1);
+    if (email2) emailList.push(email2);
+
+    const phoneList = [];
+    if (phone1) phoneList.push(phone1);
+    if (phone2) phoneList.push(phone2);
+
+    try {
+        // 3. Send decoupled data arrays to the server
+        const response = await fetch(con + "changeAccountInformation", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                accountEmail: localStorage.getItem('email'), 
+                accountPw: localStorage.getItem('password'),
+                emails: emailList,  // Array of strings: ["e1", "e2"]
+                phones: phoneList   // Array of strings: ["p1", "p2"]
+            })
+        });
+
+        const data = await response.json();
+        
+        if (data.success) {
+            alert("Account information changed successfully!");
+        } else {
+            alert("Update failed: " + (data.message || "Unknown error"));
+        }
+
+    } catch (error) {
+        console.error("Network error:", error);
+        alert("Server connection failed.");
+    }
+}
+
+async function loadAccountInformation()
+{
+    const response = await fetch(con + "getContacts",
+    {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: localStorage.getItem('email'), 
+            pw: localStorage.getItem('password'),
+        })
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    if (data.resContacts)
+    {
+        if (data.resContacts.email.length > 0)
+            document.getElementById("email-kontak-1").textContent =
+            data.resContacts.email[0];
+        if (data.resContacts.email.length > 1)
+            document.getElementById("email-kontak-2").textContent =
+            data.resContacts.email[1];
+        if (data.resContacts.phone.length > 0)
+            document.getElementById("nomor-kontak-1").textContent =
+            data.resContacts.phone[0];
+        if (data.resContacts.phone.length > 1)
+            document.getElementById("nomor-kontak-2").textContent =
+            data.resContacts.phone[1];
+    }
 }
 
 // on page startup call redirect

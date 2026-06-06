@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>EduCapy</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script>
+
+</script>
+<body>
+  <div class="educapy-header">
+    <h1>
+      EduCapy
+    </h1>
+  </div>
+  
+  <div class="login-page">
+    <!-- left side -->
+    <div class>
+
+      <h2 class="title">
+        Edit Informasi Akun
+      </h2>
+
+      <p class="subtitle">
+        
+      </p>
+      
+      <div class="card">
+        
+        <!-- EDIT AKUN -->
+
+        <div class="body">
+          
+          <h3 class="cool-h3">
+            Edit Informasi Akun
+          </h3>
+          
+
+          <!-- <p class="card-subtitle">
+            Daftar sebagai siswa
+          </p> -->
+          
+          <label class="cool-label">
+            Email Kontak 1
+          </label>
+
+          <input class="cool-input" id="email-kontak-1">
+
+          <!-- <output id = "all-email">
+            unchanged
+          </output> -->
+
+          <label class="cool-label">
+            Nomor Telepon Kontak 1
+          </label>
+
+          <input class="cool-input" id="nomor-kontak-1">
+
+          <label class="cool-label">
+            Email Kontak 2 (Opsional)
+          </label>
+
+          <input class="cool-input" id="email-kontak-2" />
+
+          <!-- <output id = "all-email">
+            unchanged
+          </output> -->
+
+          <label class="cool-label">
+            Nomor Telepon Kontak 2 (Opsional)
+          </label>
+
+          <input class="cool-input" id="nomor-kontak-2"/>
+
+          <div viewableBy="1" class="selector">
+            <label class="cool-label">Tingkat Pendidikan</label>
+            <select id="mapel">
+            </select>
+          </div>
+
+          <button class="cool-button" onclick="changeAccountInformation()">
+            Simpan Perubahan
+          </button>
+          
+
+        </div>
+
+      </div>
+
+      <button class="cool-button" onclick="logout()">
+            Logout
+      </button>
+
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", getAllUserInformation);</script>
+</body>
+</html>
