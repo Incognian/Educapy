@@ -20,7 +20,8 @@ body {
   margin: 0;
   padding: 1rem 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
 }
 
 .page
@@ -63,6 +64,9 @@ body {
 
   cursor: pointer;
   text-decoration: none;
+
+  word-break: keep-all;
+  white-space: nowrap;
 }
 
 .educapy-header-right a:hover
@@ -261,7 +265,7 @@ body {
   text-align: left;
   text-wrap: wrap;
   border-radius: 1rem;
-  height: 100%;
+  max-height: 100%;
 }
 
 .selector
@@ -269,6 +273,7 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
+  align-content: center;
 }
 
 .deselector

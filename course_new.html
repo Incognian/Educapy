@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>EduCapy</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <div class="educapy-header">
+    <h1>
+      EduCapy
+    </h1>
+      <div class="educapy-header-right">
+        
+        <a viewableby=2 href="timeslot.html">
+          Slot Waktu
+        </a>
+        <a viewableby=2 href="willingness.html">
+          Kesediaan
+        </a>
+        <a href="course_new.html">
+          Daftar Kursus
+        </a>
+        <a href="schedule_manage.html">
+          Kelola Jadwal
+        </a>
+        <a href="schedule.html">
+          Jadwal Aktif
+        </a>
+        <a href="account.html">
+          Akun
+        </a>
+        <a viewableby=3 href="account_create.html">
+          Kelola Akun
+        </a>
+      </div>
+  </div>
+
+  <!-- Content -->
+
+  <div class="page">
+
+    <div style="width:100%;">
+
+      <!-- Mata Pelajaran -->
+
+      <div class="selector">
+        <label class="cool-label">Mata Pelajaran</label>
+
+        <select class="cool-select" onchange="showValidSlots()" id="mapel">
+        </select>
+      </div>
+
+      <br>
+
+      <!-- Jenjang -->
+
+      <div class="selector">
+        <label class="cool-label">Jenjang</label>
+
+        <select class="cool-select" onchange="showValidSlots()" id="jenjang">
+        </select>
+      </div>
+
+      <br>
+      
+      <!-- Tanggal Awal -->
+
+      <div class="selector">
+        <label class="cool-label">Tanggal Awal</label>
+
+        <input type="date" id="tanggalAwal">
+        </input>
+      </div>
+
+      <br>
+      
+      <!-- Tanggal Akhir -->
+
+      <div class="selector">
+        <label class="cool-label">Tanggal Akhir</label>
+
+        <input type="date" id="tanggalAkhir">
+        </input>
+      </div>
+
+      <br>
+      
+      <br>
+
+      <h2 class="title">
+        Daftar Kursus
+      </h2>
+
+      <br>
+
+      <table class="schedule-table">
+
+        <thead>
+          <tr>
+            <th>ID Guru</th>
+            <th>Nama Guru</th>
+            <th>Hari</th>
+            <th>Jam Awal</th>
+            <th>Jam Akhir</th>
+          </tr>
+        </thead>
+
+        <tbody id="unselected-time-slots">
+
+          <!-- Diisi oleh showCourses() dari script.js -->
+
+        </tbody>
+
+        <tfoot id = "selected-time-slots">
+          
+        </tfoot>
+
+      </table>
+
+      <div
+        style="
+          margin-top: 1rem;
+          display: flex;
+          justify-content: flex-end;
+        "
+      >
+        <button
+          class="cool-button"
+          onclick="createCourse()"
+          style="width: 12rem;"
+        >
+          Save
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", populateDropdown(0, "mapel"));</script>
+  <script>document.addEventListener("DOMContentLoaded", populateDropdown(1, "jenjang"));</script>
+
+</body>
+</html>

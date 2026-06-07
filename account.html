@@ -35,101 +35,206 @@
     <h1>
       EduCapy
     </h1>
+      <div class="educapy-header-right">
+        
+        <a viewableby=2 href="timeslot.html">
+          Slot Waktu
+        </a>
+        <a viewableby=2 href="willingness.html">
+          Kesediaan
+        </a>
+        <a href="course_new.html">
+          Daftar Kursus
+        </a>
+        <a href="schedule_manage.html">
+          Kelola Jadwal
+        </a>
+        <a href="schedule.html">
+          Jadwal Aktif
+        </a>
+        <a href="account.html">
+          Akun
+        </a>
+        <a viewableby=3 href="account_create.html">
+          Kelola Akun
+        </a>
+      </div>
   </div>
   
-  <div class="login-page">
-    <!-- left side -->
-    <div class>
 
-      <h2 class="title">
-        Edit Informasi Akun
-      </h2>
 
-      <p class="subtitle">
-        
-      </p>
-      
-      <div class="card">
-        
-        <!-- EDIT AKUN -->
+    <div class="login-page">
+        <!-- left side -->
+        <div>
 
-        <div class="body">
-          
-          <h3 class="cool-h3">
-            Edit Informasi Akun
-          </h3>
-          
+            <h2 class="title">
+                Edit Informasi Akun
+            </h2>
 
-          <!-- <p class="card-subtitle">
-            Daftar sebagai siswa
-          </p> -->
-          
-          <label class="cool-label">
-            Email Kontak 1
-          </label>
+            <p class="subtitle">
+                
+            </p>
+            
+            <div class="card">
+                
+                <!-- EDIT AKUN -->
 
-          <input class="cool-input" id="email-kontak-1">
+                <div class="body">
+                
+                <h3 class="cool-h3">
+                    Edit Informasi Akun
+                </h3>
+                
 
-          <!-- <output id = "all-email">
-            unchanged
-          </output> -->
+                <!-- <p class="card-subtitle">
+                    Daftar sebagai siswa
+                </p> -->
+                
+                <label class="cool-label">
+                    Email Kontak 1
+                </label>
 
-          <label class="cool-label">
-            Nomor Telepon Kontak 1
-          </label>
+                <input class="cool-input" id="email-kontak-1">
 
-          <input class="cool-input" id="nomor-kontak-1">
+                <!-- <output id = "all-email">
+                    unchanged
+                </output> -->
 
-          <label class="cool-label">
-            Email Kontak 2
-          </label>
+                <label class="cool-label">
+                    Nomor Telepon Kontak 1
+                </label>
 
-          <input class="cool-input" id="email-kontak-2" />
+                <input class="cool-input" id="nomor-kontak-1">
 
-          <!-- <output id = "all-email">
-            unchanged
-          </output> -->
+                <label class="cool-label">
+                    Email Kontak 2
+                </label>
 
-          <label class="cool-label">
-            Nomor Telepon Kontak 2
-          </label>
+                <input class="cool-input" id="email-kontak-2" />
 
-          <input class="cool-input" id="nomor-kontak-2"/>
+                <!-- <output id = "all-email">
+                    unchanged
+                </output> -->
 
-          <div class="selector" viewableby=1>
-            <label class = "cool-label">Tingkat Pendidikan</label>
-            <select class = "cool-select" id="idJenjang">
-            </select>
-          </div>
+                <label class="cool-label">
+                    Nomor Telepon Kontak 2
+                </label>
 
-          <div viewableby=2>
-            <label class = "cool-label">
-              Pengalaman Kerja 1
-            </label>
+                <input class="cool-input" id="nomor-kontak-2"/>
 
-            <input class = "cool-input" id="pengalaman-1" placeholder="Contoh: 3 tahun mengajar Fisika di SMAN 1">
-            <label class = "cool-label">
-              Pengalaman Kerja 2
-            </label>
-            <input class = "cool-input" id="pengalaman-2" placeholder="Contoh: 2 tahun mengajar Matematika di SMAN 3">
-          </div>
+                <div class="selector" viewableby=1>
+                    <label class = "cool-label">Tingkat Pendidikan</label>
+                    <select class = "cool-select" id="idJenjang">
+                    </select>
+                </div>
 
-          <button class="cool-button" onclick="changeAccountInformation()">
-            Simpan Perubahan
-          </button>
-          
+                <div viewableby=2>
+                    <label class = "cool-label">
+                    Pengalaman Kerja 1
+                    </label>
+
+                    <input class = "cool-input" id="pengalaman-1" placeholder="Contoh: 3 tahun mengajar Fisika di SMAN 1">
+                    <label class = "cool-label">
+                    Pengalaman Kerja 2
+                    </label>
+                    <input class = "cool-input" id="pengalaman-2" placeholder="Contoh: 2 tahun mengajar Matematika di SMAN 3">
+                </div>
+
+                <br>
+                <br>
+
+                <button class="cool-button" onclick="changeAccountInformation()">
+                    Simpan Perubahan
+                </button>
+                
+                </div>
+
+            </div>
+
+            <button class="cool-button" onclick="logout()">
+                    Logout
+            </button>
 
         </div>
 
-      </div>
+        <!-- right side -->
 
-      <button class="cool-button" onclick="logout()">
-            Logout
-      </button>
+        <div>
+
+            <h2 class="title">
+                Cari Informasi Akun
+            </h2>
+
+            <p class="subtitle">
+                
+            </p>
+            
+            <div class="card">
+                
+                <div class="selector">
+                    <label class = "cool-label">ID Pengguna: </label>
+                    <input class="cool-select" id="search-ID"></input>
+                </div>
+                <br>
+
+                <button class="cool-button" onclick="searchAccount()">
+                    Cari
+                </button>
+                <br>
+                <br>
+
+                <!-- INFORMASI AKUN -->
+
+                <div class="body">
+                
+                <label class="cool-label">
+                    Email Kontak 1
+                </label>
+                <label class="cool-label" id="email-kontak-1-res">-</label>
+                <br>
+
+                <label class="cool-label">
+                    Nomor Telepon Kontak 1
+                </label>
+                <label class="cool-label" id="nomor-kontak-1-res">-</label>
+                <br>
+
+                <label class="cool-label">
+                    Email Kontak 2
+                </label>
+                <label class="cool-label" id="email-kontak-2-res">-</label>
+                <br>
+
+                <label class="cool-label">
+                    Nomor Telepon Kontak 2
+                </label>
+                <label class="cool-label" id="nomor-kontak-2-res">-</label>
+                <br>
+
+                <label class = "cool-label">Tingkat Pendidikan: </label>
+                <label class = "cool-label" id="idJenjang-res">-</label>
+                <br>
+
+                <div>
+                    <label class = "cool-label">
+                    Pengalaman Kerja 1
+                    </label>
+                    <label class = "cool-label" id="pengalaman-1-res">-</label>
+                    <br>
+
+                    <label class = "cool-label">
+                    Pengalaman Kerja 2
+                    </label>
+                    <label class = "cool-label" id="pengalaman-2-res">-</label>
+                </div>
+                
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-    
-  </div>
 
   <script src="script.js"></script>
   <script>document.addEventListener("DOMContentLoaded", loadAccountInformation);</script>

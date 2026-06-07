@@ -58,46 +58,61 @@
         </a>
       </div>
   </div>
+  
+  <div class="login-page">
+    <div class>
+      <h2 class="title">
+        Daftarkan Akun
+      </h2>
 
-  <div viewableby=3 class="table-selector">
-    <label><strong>Select Guru:</strong></label>
-    <select id="user-selector-dropdown" onchange="showSchedule()"></select>
-  </div>
+      <p class="subtitle">
+        Daftarkan Akun Baru Sebagai Admin
+      </p>
 
-  <div class="page">
-    <div class="time-table">
-      <div class="column-names">
-        <h1>Senin</h1>
-        <h1>Selasa</h1>
-        <h1>Rabu</h1>
-        <h1>Kamis</h1>
-        <h1>Jumat</h1>
-        <h1>Sabtu</h1>
-        <h1>Minggu</h1>
-      </div>
+        <!-- REGISTER -->
 
-      <div class="row-names">
-        <h1>08:00-09:00</h1>
-        <h1>09:00-10:00</h1>
-        <h1>10:00-11:00</h1>
-        <h1>11:00-12:00</h1>
-        <h1>12:00-13:00</h1>
-        <h1>13:00-14:00</h1>
-        <h1>14:00-15:00</h1>
-        <h1>15:00-16:00</h1>
-        <h1>16:00-17:00</h1>
-        <h1>17:00-18:00</h1>
-        <h1>18:00-19:00</h1>
-        <h1>19:00-20:00</h1>
-      </div>
+        <div class="card">
 
-      <div class="actual-schedule" id="actual-schedule"></div>
+          <label class="cool-label">
+            Nama Lengkap
+          </label>
+
+          <input class="cool-input" id="reg-name" type="text" />
+
+          <label class="cool-label">
+            E-mail
+          </label>
+
+          <input class="cool-input" id="reg-email" type="email" />
+
+          <label class="cool-label">
+            Password
+          </label>
+
+          <input class="cool-input" id="reg-pass" type="password" />
+
+          <label class="cool-label">
+            Tipe
+          </label>
+
+          <select class="cool-select" id="reg-tipe">
+            <option value="1">Siswa</option>
+            <option value="2">Guru</option>
+            <option value="3">Admin</option>
+          </select>
+          <br>
+          <br>
+
+          <button class="cool-button" onclick="registerAdmin()">
+            Daftar
+          </button>
+
+        </div>
 
     </div>
   </div>
 
   <script src="script.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", showSchedule);</script>
-  <script>document.addEventListener("DOMContentLoaded", populateGuruDropdown);</script>
+  <script>document.addEventListener("DOMContentLoaded", kick([false, true, true]));</script>
 </body>
 </html>
