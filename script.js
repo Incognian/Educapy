@@ -450,26 +450,26 @@ async function loadAccountInformation()
     console.log(data);
 
     if (data.resEmail.length > 0)
-        document.getElementById("email-kontak-1").textContent =
-        data.resEmail[0].alamatEmail;
+        document.getElementById("email-kontak-1").value =
+        `${data.resEmail[0].alamatEmail}`;
     if (data.resEmail.length > 1)
-        document.getElementById("email-kontak-2").textContent =
-        data.resEmail[1].alamatEmail;
+        document.getElementById("email-kontak-2").value =
+        `${data.resEmail[1].alamatEmail}`;
     if (data.resPhone.length > 0)
-        document.getElementById("nomor-kontak-1").textContent =
-        data.resPhone[0].nomorTelepon;
+        document.getElementById("nomor-kontak-1").value =
+        `${data.resPhone[0].nomorTelepon}`;
     if (data.resPhone.length > 1)
-        document.getElementById("nomor-kontak-2").textContent =
-        data.resPhone[1].nomorTelepon;
+        document.getElementById("nomor-kontak-2").value =
+        `${data.resPhone[1].nomorTelepon}`;
     if (data.resPengalaman.length > 0)
-        document.getElementById("pengalaman-1").textContent =
-        data.resPengalaman[0].deskripsi;
+        document.getElementById("pengalaman-1").value =
+        `${data.resPengalaman[0].deskripsi}`;
     if (data.resPengalaman.length > 1)
-        document.getElementById("pengalaman-2").textContent =
-        data.resPengalaman[1].deskripsi;
+        document.getElementById("pengalaman-2").value =
+        `${data.resPengalaman[1].deskripsi}`;
     if (data.resJenjang != null)
-        document.getElementById("idJenjang").textContent =
-        data.resJenjang
+        document.getElementById("idJenjang").value =
+        `${data.resJenjang}`;
 }
 
 async function searchAccount()
