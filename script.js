@@ -760,11 +760,7 @@ async function showValidSlots()
 async function createCourse()
 {
     let rows = [];
-    for (const e of selectedTimeSlots)
-    {
-        rows.push(e.value);
-    }
-    selectedTimeSlots = [];
+    for (const e of selectedTimeSlots) rows.push(e.value);
     console.log(rows);
 
     const response = await fetch(con + "hardestPartHere",
